@@ -1,20 +1,20 @@
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Quando;
 
 public class AprenderCucumber {
-	@Given("^que criei o arquivo corretamente$")
+	@Dado("^que criei o arquivo corretamente$")
 	public void que_criei_o_arquivo_corretamente() throws Throwable {
-		System.out.println("primeiro");
+	    System.out.println("Primeiro");
 	}
 
-	@When("^executa-lo$")
+	@Quando("^executa-lo$")
 	public void executa_lo() throws Throwable {
-		System.out.println("segundo");
+		System.out.println("Segundo");
 	}
 
-	@Then("^a especificação deve finalizar com sucesso$")
+	@Então("^a especificação deve finalizar com sucesso$")
 	public void a_especificação_deve_finalizar_com_sucesso() throws Throwable {
-		System.out.println("terceiro");
+		System.out.println("Terceiro");
 	}
 }
