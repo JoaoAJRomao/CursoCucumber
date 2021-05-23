@@ -29,17 +29,17 @@ Funcionalidade: Aprendendo Cucumber
   Cenário: Deve criar steps genéricos para estes passos
     Dado que o ticket é AF345
     Dado que o valor da passagem é R$ 230,45
-    Dado que o nome do passageiro é "Fulano da Silva"
-    Dado que o telefone do passageiro é 9999-9999
+    E que o nome do passageiro é "Fulano da Silva"
+    Mas que o telefone do passageiro é 9999-9999
     Quando criar os steps
     Então o teste vai funcionar
 
   Cenário: Deve reaproveitar os steps "Dado" do cenário anterior
-    Dado que o ticket é AB167
-    Dado que o ticket especial é AB167
-    Dado que o valor da passagem é R$ 1120,23
-    Dado que o nome do passageiro é "Cicrano de Oliveira"
-    Dado que o telefone do passageiro é 9888-8888
+    * que o ticket é AB167
+    * que o ticket especial é AB167
+    * que o valor da passagem é R$ 1120,23
+    * que o nome do passageiro é "Cicrano de Oliveira"
+    * que o telefone do passageiro é 9888-8888
 
   Cenário: Deve negar todos os steps "Dado" dos cenários anteriores
     Dado que o ticket é CD123
