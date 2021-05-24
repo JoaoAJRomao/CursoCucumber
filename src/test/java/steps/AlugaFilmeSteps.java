@@ -1,7 +1,6 @@
 package steps;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -11,6 +10,7 @@ import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import entidades.Filme;
 import entidades.NotaAluguel;
+import entidades.TipoAluguel;
 import servicos.AluguelService;
 import utils.DateUtils;
 
@@ -20,7 +20,7 @@ public class AlugaFilmeSteps {
 	private AluguelService aluguel = new AluguelService();
 	private NotaAluguel nota;
 	private String erro;
-	private String tipoAluguel;
+	private TipoAluguel tipoAluguel = TipoAluguel.COMUM;
 
 	@Dado("^um filme com estoque de (\\d+) unidades$")
 	public void umFilmeComEstoqueDeUnidades(int arg1) throws Throwable {
@@ -59,7 +59,8 @@ public class AlugaFilmeSteps {
 
 	@Dado("^que o tipo do aluguel seja (.*)$")
 	public void queOTipoDoAluguelSejaExtendido(String tipo) throws Throwable {
-		tipoAluguel = tipo;
+		tipoAluguel = tipo.equals("semanal") ? TipoAluguel.SEMANAL
+				: tipo.equals("extendido") ? TipoAluguel.EXTENDIDO : TipoAluguel.COMUM;
 	}
 
 	@Então("^a data de entrega será em (\\d+) dias?$")
