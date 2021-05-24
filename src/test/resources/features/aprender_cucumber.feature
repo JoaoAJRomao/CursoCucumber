@@ -1,4 +1,5 @@
 # language: pt
+@Sprint1
 Funcionalidade: Aprendendo Cucumber
 
   Cenario: Deve executar especificação
@@ -16,16 +17,19 @@ Funcionalidade: Aprendendo Cucumber
     Quando eu incrementar em 35
     Então o valor do contador sera 158
 
+  @Ciclo1
   Cenário: Deve calcular atraso na entrega
     Dado que a entrega é dia 05/04/2018
     Quando a entrega atrasar em 2 dias
     Então a entrega será efetuada em 07/04/2018
 
+  @Ciclo2
   Cenário: Deve calcular atraso na entrega da china
     Dado que a entrega é dia 05/04/2018
     Quando a entrega atrasar em 2 meses
     Então a entrega será efetuada em 05/06/2018
 
+  @Ciclo1 @Ciclo2
   Cenário: Deve criar steps genéricos para estes passos
     Dado que o ticket é AF345
     Dado que o valor da passagem é R$ 230,45
@@ -41,6 +45,7 @@ Funcionalidade: Aprendendo Cucumber
     * que o nome do passageiro é "Cicrano de Oliveira"
     * que o telefone do passageiro é 9888-8888
 
+  @Ignora
   Cenário: Deve negar todos os steps "Dado" dos cenários anteriores
     Dado que o ticket é CD123
     Dado que o ticket é AG1234
