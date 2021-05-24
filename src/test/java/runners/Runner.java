@@ -8,9 +8,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/features", 
+		features = "src/test/resources/features/alugar_filme.feature", 
 		glue = "steps", 
-		tags = {"@Ciclo1, @Ciclo2"},
+		tags = {},
 		plugin = "pretty", 
 		monochrome = true, 
 		snippets = SnippetType.CAMELCASE, 
