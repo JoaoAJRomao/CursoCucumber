@@ -17,6 +17,7 @@ public class AlugaFilmeSteps {
 	private Filme filme;
 	private AluguelService aluguel = new AluguelService();
 	private NotaAluguel nota;
+	private String erro;
 
 	@Dado("^um filme com estoque de (\\d+) unidades$")
 	public void umFilmeComEstoqueDeUnidades(int arg1) throws Throwable {
@@ -31,7 +32,11 @@ public class AlugaFilmeSteps {
 
 	@Quando("^alugar$")
 	public void alugar() throws Throwable {
-		nota = aluguel.alugar(filme);
+		try {
+			nota = aluguel.alugar(filme);
+		} catch (RuntimeException e) {
+			 erro = e.getMessage();
+		}
 	}
 
 	@Então("^o preço do aluguel será R\\$ (\\d+)$")
@@ -54,6 +59,11 @@ public class AlugaFilmeSteps {
 	@Então("^o estoque do filme será (\\d+) unidade$")
 	public void oEstoqueDoFilmeSeráUnidade(int arg1) throws Throwable {
 		Assert.assertEquals(arg1, filme.getEstoque());
+	}
+
+	@Então("^não será possível por falta de estoque$")
+	public void nãoSeráPossívelPorFaltaDeEstoque() throws Throwable {
+	    Assert.assertEquals("Filme sem estoque", erro);
 	}
 
 }
