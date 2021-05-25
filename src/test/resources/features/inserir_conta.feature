@@ -29,11 +29,10 @@ Funcionalidade: Cadastro de contas
     E seleciono Salvar
     Então sou notificado que o nome da conta é obrigatório
 
-@Ignore
   Cenário: Não deve inserir uma conta com nome já existente
     Dado que estou acessando a aplicação
-    Quando informo o usuário "a@a"
-    E a senha "a"
+    Quando informo o usuário "arthur@joao"    
+    E a senha "qwerty"
     E seleciono entrar
     Então visualizo a página inicial
     Quando seleciono Contas
