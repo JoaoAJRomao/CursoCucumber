@@ -1,11 +1,17 @@
 package steps;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
@@ -91,12 +97,27 @@ public class InserirContaSteps {
 		Assert.assertEquals(arg1, text);
 	}
 
-	@Before
+	@Before(order = 10)
 	public void iniciar() {
 		System.out.println("Começando aqui");
 	}
+	
+	@Before(order = 0)
+	public void iniciar2() {
+		System.out.println("Começando aqui, parte 2");
+	}
 
-	@After
+	@After(order = 1)
+	public void screenshot(Scenario cenario) {
+		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(file, new File("target/screenshots/" + cenario.getId() + ".jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@After(order = 0)
 	public void fecharBrowser() {
 		driver.quit();
 		System.out.println("Terminando!");
