@@ -29,7 +29,6 @@ public class InserirContaSteps {
 	@Quando("^informo o usuário \"([^\"]*)\"$")
 	public void informoOUsuário(String arg1) throws Throwable {
 		driver.findElement(By.id("email")).sendKeys(arg1);
-		;
 	}
 
 	@Quando("^a senha \"([^\"]*)\"$")

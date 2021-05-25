@@ -5,7 +5,6 @@ Funcionalidade: Cadastro de contas
   Gostaria de cadastrar contas
   Para que eu possa distribuir meu dinheiro de uma forma mais organizada
 
-@Ignore
   Cenário: Deve inserir uma conta com sucesso
     Dado que estou acessando a aplicação
     Quando informo o usuário "arthur@joao"    
