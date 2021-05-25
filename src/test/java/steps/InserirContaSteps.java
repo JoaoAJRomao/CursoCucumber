@@ -54,7 +54,7 @@ public class InserirContaSteps {
 
 	@Quando("^seleciono Adicionar$")
 	public void selecionoAdicionar() throws Throwable {
-		driver.findElement(By.linkText("Adicionar")).click();		
+		driver.findElement(By.linkText("Adicionar")).click();
 	}
 
 	@Quando("^informo a conta \"([^\"]*)\"$")
@@ -72,24 +72,30 @@ public class InserirContaSteps {
 		String text = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
 		Assert.assertEquals("Conta adicionada com sucesso!", text);
 	}
-	
+
 	@Então("^sou notificado que o nome da conta é obrigatório$")
 	public void souNotificarQueONomeDaContaÉObrigatório() throws Throwable {
 		String text = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
-		Assert.assertEquals("Informe o nome da conta", text);	    
+		Assert.assertEquals("Informe o nome da conta", text);
 	}
-	
+
 	@Então("^sou notificado que já existe uma conta com esse nome$")
 	public void souNotificadoQueJáExisteUmaContaComEsseNome() throws Throwable {
 		String text = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
-		Assert.assertEquals("Já existe uma conta com esse nome!", text);		
+		Assert.assertEquals("Já existe uma conta com esse nome!", text);
 	}
-	
+
+	@Então("^recebo a mensagem \"([^\"]*)\"$")
+	public void receboAMensagem(String arg1) throws Throwable {
+		String text = driver.findElement(By.xpath("//div[starts-with(@class,'alert alert-')]")).getText();
+		Assert.assertEquals(arg1, text);
+	}
+
 	@Before
 	public void iniciar() {
 		System.out.println("Começando aqui");
 	}
-	
+
 	@After
 	public void fecharBrowser() {
 		driver.quit();
