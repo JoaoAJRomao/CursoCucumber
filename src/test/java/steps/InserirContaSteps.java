@@ -101,13 +101,13 @@ public class InserirContaSteps {
 	public void iniciar() {
 		System.out.println("Começando aqui");
 	}
-	
+
 	@Before(order = 0)
 	public void iniciar2() {
 		System.out.println("Começando aqui, parte 2");
 	}
 
-	@After(order = 1)
+	@After(order = 1, value = { "@funcional"})
 	public void screenshot(Scenario cenario) {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
@@ -117,7 +117,7 @@ public class InserirContaSteps {
 		}
 	}
 
-	@After(order = 0)
+	@After(order = 0, value = { "@funcional"})
 	public void fecharBrowser() {
 		driver.quit();
 		System.out.println("Terminando!");

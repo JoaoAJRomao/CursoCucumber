@@ -1,5 +1,5 @@
 # language: pt
-@Sprint1
+@unitário
 Funcionalidade: Aprendendo Cucumber
 
   Cenario: Deve executar especificação
