@@ -6,13 +6,13 @@ import java.util.Map;
 
 import org.junit.Assert;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
-import cucumber.api.java.pt.Quando;
 import entidades.Filme;
 import entidades.NotaAluguel;
 import entidades.TipoAluguel;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Então;
+import io.cucumber.java.pt.Quando;
 import servicos.AluguelService;
 import utils.DateUtils;
 
