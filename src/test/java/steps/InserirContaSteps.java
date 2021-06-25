@@ -48,11 +48,11 @@ public class InserirContaSteps {
 		Assert.assertEquals(arg1, text);
 	}
 
-//	@After(order = 1, value = "@funcional")
+	@After(order = 1, value = "@funcional")
 	public void screenshot(Scenario cenario) {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(file, new File("target/screenshots/" + cenario.getId() + ".jpg"));
+			FileUtils.copyFile(file, new File("target/screenshots/" + cenario.getName() + ".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
